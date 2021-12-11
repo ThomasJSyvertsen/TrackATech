@@ -1,8 +1,11 @@
 package tracker.beans;
 
+import javax.persistence.Embeddable;
+
 /**
  * @author Thomas Syvertsen - tjsyvertsen CIS152 - Fall 2021 Dec 8, 2021
  */
+@Embeddable
 public class Location {
 	private String street;
 	//Designate if is a house, apartment, town home etc.
@@ -10,8 +13,6 @@ public class Location {
 	//Unit number if is an apartment.
 	private String unit;
 	private String city;
-	//The state is an enum that is in the United States.
-	private State state;
 
 	/**
 	 * 
@@ -27,13 +28,12 @@ public class Location {
 	 * @param city
 	 * @param state
 	 */
-	public Location(String street, String type, String unit, String city, State state) {
+	public Location(String street, String type, String unit, String city) {
 		super();
 		this.street = street;
 		this.type = type;
 		this.unit = unit;
 		this.city = city;
-		this.state = state;
 	}
 
 	/**
@@ -91,24 +91,10 @@ public class Location {
 	public void setCity(String city) {
 		this.city = city;
 	}
-
-	/**
-	 * @return the state
-	 */
-	public State getState() {
-		return state;
-	}
-
-	/**
-	 * @param state the state to set
-	 */
-	public void setState(State state) {
-		this.state = state;
-	}
+	
 
 	@Override
 	public String toString() {
-		return "Location [street=" + street + ", type=" + type + ", unit=" + unit + ", city=" + city + ", state="
-				+ state + "]";
+		return "Location [street=" + street + ", type=" + type + ", unit=" + unit + ", city=" + city + "]";
 	}
 }

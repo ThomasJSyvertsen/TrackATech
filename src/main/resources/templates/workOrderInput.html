@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert New Work Order</title>
+<link th:rel="stylesheet"
+	th:href="@{/webjars/bootstrap/4.0.0-2/css/bootstrap.min.css} " />
+</head>
+<body>
+	<div class="container">
+		<div class="row">
+			<div class="column">
+				<form th:object="${newWorkOrder}" th:action="@{/inputWorkOrder}"
+					method='POST'>
+					<div class="form-group col-4">
+						<label for="time">Time</label> <input type="num"
+							class="form-control" id="time" name="time" size="2"
+							th:field="*{time}" required>
+					</div>
+					<div class="form-group form-check col-4">
+					<input class="form-check-input" type="checkbox" value="" id="morning" name="morning" th:field="*{morning}">
+						<label class="form-check-label" for="morning">Morning</label> 
+					</div>
+
+					<button type="submit" class="btn btn-primary">Submit</button>
+				</form>
+			</div>
+		</div>
+	</div>
+
+</body>
+</html>

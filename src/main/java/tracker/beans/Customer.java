@@ -1,12 +1,22 @@
 package tracker.beans;
 
+import javax.persistence.Embeddable;
+import javax.persistence.GeneratedValue;
+
+import org.springframework.beans.factory.annotation.Autowired;
+
 /**
  * @author Thomas Syvertsen - tjsyvertsen CIS152 - Fall 2021 Dec 8, 2021
  */
+
+@Embeddable
 public class Customer {
+	@GeneratedValue
+	private long customerId;
 	private String name;
 	private double phoneNumber;
 	//Each customer has a location where the job will take place.
+	@Autowired
 	private Location location;
 
 	/**
@@ -26,6 +36,22 @@ public class Customer {
 		this.name = name;
 		this.phoneNumber = phoneNumber;
 		this.location = location;
+	}
+	
+	
+
+	/**
+	 * @return the customerId
+	 */
+	public long getCustomerId() {
+		return customerId;
+	}
+
+	/**
+	 * @param customerId the customerId to set
+	 */
+	public void setCustomerId(long customerId) {
+		this.customerId = customerId;
 	}
 
 	/**

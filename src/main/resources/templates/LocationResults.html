@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>View All Locations</title>
+</head>
+<body>
+	<div class="container">
+		<div class="row justify-content-center">
+			<div class="col-8">
+				<form th:object="${workOrder}">
+					<table class="table table-striped">
+						<thead>
+							<tr>
+								<th scope="col">Street</th>
+								<th scope="col">Type</th>
+								<th scope="col">Unit</th>
+								<th scope="col">City</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr th:each="currentLocation : ${location}">
+								<td th:text="${currentLocation.street}" />
+								<td th:text="${currentLocation.type}" />
+								<td th:text="${currentLocation.unit}" />
+								<td th:text="${currentLocation.city}" />
+								<td><a
+									th:href="@{/viewCustomerLocation/{id}(id=${id})}">View
+										Location</a></td>
+							</tr>
+						</tbody>
+					</table>
+				<a
+					th:href="@{/inputLocation/{id}(id=${workOrder.id})}">Add
+					a new Location</a>
+					<br>
+	<a th:href="@{/home}">Home</a>
+					</form>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

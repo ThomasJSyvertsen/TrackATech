@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>View All Customers</title>
+</head>
+<body>
+	<div class="container">
+		<div class="row justify-content-center">
+			<div class="col-8">
+				<form th:object="${workOrder}">
+					<table class="table table-striped">
+						<thead>
+							<tr>
+								<th scope="col">Name</th>
+								<th scope="col">PhoneNumber</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr th:each="currentCustomer : ${customer}">
+								<td th:text="${currentCustomer.name}" />
+								<td th:text="${currentCustomer.phoneNumber}" />
+								<td><a
+									th:href="@{/viewCustomerLocation/{id}(id=${id})}">View
+										Location</a>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+									<a th:href="@{/inputCustomer/{id}(id=${workOrder.id})}">Add a new
+					Customer</a>
+					<br>
+	<a th:href="@{/home}">Home</a>
+				</form>
+
+			</div>
+		</div>
+	</div>
+</body>
+</html>

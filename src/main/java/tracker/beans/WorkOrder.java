@@ -1,9 +1,21 @@
 package tracker.beans;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+
+import org.springframework.beans.factory.annotation.Autowired;
+
 /**
  * @author Thomas Syvertsen - tjsyvertsen CIS152 - Fall 2021 Dec 8, 2021
  */
-public class Order {
+
+@Entity
+public class WorkOrder {
+	@Id
+	@GeneratedValue
+	private long id;
+	@Autowired
 	private Customer customer;
 	//This will indicate the 1-12 time.
 	private int time;
@@ -14,7 +26,7 @@ public class Order {
 	/**
 	 * 
 	 */
-	public Order() {
+	public WorkOrder() {
 		super();
 	}
 
@@ -22,11 +34,20 @@ public class Order {
 	 * @param technician
 	 * @param customer
 	 */
-	public Order(Customer customer, int time, boolean morning) {
+	public WorkOrder(Customer customer, int time, boolean morning) {
 		super();
 		this.customer = customer;
 		this.time = time;
 		this.morning = morning;
+	}
+	
+	
+
+	/**
+	 * @return the id
+	 */
+	public long getId() {
+		return id;
 	}
 
 	/**

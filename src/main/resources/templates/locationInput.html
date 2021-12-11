@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert New Location</title>
+<link th:rel="stylesheet"
+	th:href="@{/webjars/bootstrap/4.0.0-2/css/bootstrap.min.css} " />
+</head>
+<body>
+	<div class="container">
+		<div class="row">
+			<div class="column">
+				<form th:object="${newLocation}" th:action="@{/inputLocation/{id}(id=${id})}"
+					method='POST'>
+					<div class="form-group col-4">
+						<label for="street">Street</label> <input type="text"
+							class="form-control" id="street" name="street" size="15"
+							th:field="*{street}" required>
+					</div>
+					<div class="form-group col-4">
+						<label for="type">Type</label> <input type="text"
+							class="form-control" id="type" name="type" size="15"
+							th:field="*{type}" required>
+					</div>
+										<div class="form-group col-4">
+						<label for="unit">Unit</label> <input type="text"
+							class="form-control" id="unit" name="unit" size="15"
+							th:field="*{unit}" required>
+					</div>
+					<div class="form-group col-4">
+						<label for="city">City</label> <input type="text"
+							class="form-control" id="city" name="city" size="15"
+							th:field="*{city}" required>
+					</div>
+
+					<button type="submit" class="btn btn-primary">Submit</button>
+				</form>
+			</div>
+		</div>
+	</div>
+
+</body>
+</html>

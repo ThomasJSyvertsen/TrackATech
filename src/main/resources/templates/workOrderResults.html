@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>View All Orders</title>
+</head>
+<body>
+	<div class="container">
+		<div class="row justify-content-center">
+			<div class="col-8">
+				<form>
+					<table class="table table-striped">
+						<thead>
+							<tr>
+								<th scope="col">Id</th>
+								<th scope="col">Time</th>
+								<th scope="col">Morning</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr th:each="currentWorkOrder : ${workOrders}">
+								<td th:text="${currentWorkOrder.id}" />
+								<td th:text="${currentWorkOrder.time}" />
+								<td th:text="${currentWorkOrder.morning}" />
+								<td><a th:href="@{/viewWorkOrder/{id}(id=${currentWorkOrder.id})}">View</a></td>
+							</tr>
+						</tbody>
+					</table>
+				</form>
+			</div>
+		</div>
+	</div>
+	<a href="../inputWorkOrder">Add a new work order</a><br>
+	<a th:href="@{/home}">Home</a>
+</body>
+</html>

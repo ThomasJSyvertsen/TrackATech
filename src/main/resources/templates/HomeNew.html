@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Home</title>
+</head>
+<body>
+	<div class="container">
+		<div class="row justify-content-center">
+			<p th:text=${workOrder}></p>
+			<form th:action="@{/home}" action="post">
+				<button>Next Order</button>
+			</form>
+		</div>
+	</div>
+</body>
+</html>
